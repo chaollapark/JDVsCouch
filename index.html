@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Import Question</title>
     <link rel="stylesheet" href="./public/css/style.css" />
+    <style>
+      body {
+        transition: background-color 0.3s, color 0.3s;
+      }
+      body.dark-mode {
+        background-color: #333;
+        color: #f1f1f1;
+      }
+      #dark-mode-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      #dark-mode-toggle img {
+        width: 40px;
+        height: 40px;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -19,7 +40,7 @@
       <div class="message">
         <h2 id="success-message">Love Story (Taylor Swift is playing)</h2>
         
-        <h6>Troll Task <a class="creator" href="https://www.koii.network/>Download Koii, Run the couch task</a></h6>
+        <h6>Troll Task <a class="creator" href="https://www.koii.network/">Download Koii, Run the couch task</a></h6>
       </div>
       <div class="language-selector">
         <label for="language-select">Choose Language:</label>
@@ -30,6 +51,25 @@
         </select>
       </div>
     </div>
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()">
+      <img id="dark-mode-icon" src="./public/images/white-couch.png" alt="White Couch Icon for Light Mode" />
+    </button>
+    
     <script src="./public/js/script.js"></script>
+    <script>
+      function toggleDarkMode() {
+        const body = document.body;
+        const icon = document.getElementById('dark-mode-icon');
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+          icon.src = './public/images/black-couch.png';
+          icon.alt = "Black Couch Icon for Dark Mode";
+        } else {
+          icon.src = './public/images/white-couch.png';
+          icon.alt = "White Couch Icon for Light Mode";
+        }
+      }
+    </script>
   </body>
 </html>
