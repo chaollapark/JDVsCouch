@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Import Question</title>
     <link rel="stylesheet" href="./public/css/style.css" />
+    <style>
+      body {
+        background-image: url('./public/images/JDV.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: rotate(-90deg); /* Rotates the background image */
+        transform-origin: center;
+        height: 100vh;
+        overflow: hidden; /* Prevents scrolling */
+      }
+  
+      .container {
+        transform: rotate(90deg); /* Rotates the container back to normal */
+        transform-origin: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+  
+      .banner-gif img {
+        display: none; /* Hides the original image element */
+      }
+  
+      /* Additional styles to ensure text and elements are visible */
+      .message, .buttons, .language-selector {
+        position: absolute;
+        transform: rotate(-90deg); /* Keeps these elements upright */
+        transform-origin: left top;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
