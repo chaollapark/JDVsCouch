@@ -1,69 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Import Question</title>
-    <link rel="stylesheet" href="./public/css/style.css" />
-    <style>
-      body {
-        background-image: url('./public/images/JDV.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        transform: rotate(-90deg); /* Rotates the background image */
-        transform-origin: center;
-        height: 100vh;
-        overflow: hidden; /* Prevents scrolling */
-      }
-  
-      .container {
-        transform: rotate(90deg); /* Rotates the container back to normal */
-        transform-origin: center;
-        height: 100vh;
-        overflow: hidden;
-      }
-  
-      .banner-gif img {
-        display: none; /* Hides the original image element */
-      }
-  
-      /* Additional styles to ensure text and elements are visible */
-      .message, .buttons, .language-selector {
-        position: absolute;
-        transform: rotate(-90deg); /* Keeps these elements upright */
-        transform-origin: left top;
-        left: 50%;
-        top: 50%;
-        width: 100%;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="banner-gif">
-        <img id="banner" src="./public/images/JDVsLover.webp" alt="banner" />
-      </div>
-      <h1 id="question-heading">Are you in Love with 🛋️🛋️🛋️?</h1>
-      <div class="buttons">
-        <button id="yes-button"><p>Yes</p></button>
-        <button id="no-button"><p>No</p></button>
-      </div>
-      <div class="message">
-        <h2 id="success-message">Love Story (Taylor Swift is playing)</h2>
-        
-        <h6>Troll Task <a class="creator" href="https://www.koii.network/>Download Koii, Run the couch task</a></h6>
-      </div>
-      <div class="language-selector">
-        <label for="language-select">Choose Language:</label>
-        <select id="language-select" onchange="changeLanguage()">
-          <option value="english">English</option>
-          <option value="french">French</option>
-          <option value="thai">แบบไทย</option>
-        </select>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Import Question</title>
+  <link rel="stylesheet" href="./public/css/style.css" />
+  <style>
+    body {
+      background-image: url('./public/images/JDV.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh;
+      overflow: hidden;
+      color: black;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .rotated-background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      transform-origin: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .banner-gif img {
+      display: none;
+    }
+
+    .message, .buttons, .language-selector {
+      position: relative;
+      z-index: 1;
+    }
+
+    .dark-mode-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .dark-mode .dark-mode-button {
+      background-color: #ccc;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="rotated-background"></div>
+  <div class="container">
+    <button class="dark-mode-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <div class="banner-gif">
+      <img id="banner" src="./public/images/JDVsLover.webp" alt="banner" />
     </div>
-    <script src="./public/js/script.js"></script>
-  </body>
+    <h1 id="question-heading">Are you in Love with 🛋️🛋️🛋️?</h1>
+    <div class="buttons">
+      <button id="yes-button"><p>Yes</p></button>
+      <button id="no-button"><p>No</p></button>
+    </div>
+    <div class="message">
+      <h2 id="success-message">Love Story (Taylor Swift is playing)</h2>
+      <h6>Troll Task <a class="creator" href="https://www.koii.network/">Download Koii, Run the couch task</a></h6>
+    </div>
+    <div class="language-selector">
+      <label for="language-select">Choose Language:</label>
+      <select id="language-select" onchange="changeLanguage()">
+        <option value="english">English</option>
+        <option value="french">French</option>
+        <option value="thai">แบบไทย</option>
+      </select>
+    </div>
+  </div>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+  <script src="./public/js/script.js"></script>
+</body>
 </html>
